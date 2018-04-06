@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="medium-3 columns">
+        <h1>
+        <h1 style="text-align: center;">
+        <img src="assets/img/logo.jpg">
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-9 push-3 columns">
+        <h3>Assistentes</h3>
+        <form>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Assistente</label>
+                    <select ng-model="assistentesCtrl.id_assistente">
+                        <option ng-repeat="pessoa in pessoasCtrl.pessoas" value="{{pessoa.id}}">{{pessoa.nome}}</option>
+                    </select>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Projeto</label>
+                    <select ng-model="assistentesCtrl.id_projeto">
+                        <option ng-repeat="projeto in projetosCtrl.projetos" value="{{projeto.id}}">{{projeto.titulo}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Gostei do projeto porque...</label>
+                    <textarea ng-model="assistentesCtrl.gostei_projeto" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Eu cresci em...</label>
+                    <textarea ng-model="assistentesCtrl.eu_cresci" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Comentários</label>
+                    <textarea ng-model="assistentesCtrl.comentario" />
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em;">
+                <ul class="button-group radius right">
+                    <li><a href="#" ng-click="assistentesCtrl.salvar_assistente()" class="button">Salvar</a></li>
+                    <li><a href="#" class="button">Cancelar</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="medium-3 pull-9 columns">
+        <input ng-model="assistente" type="text">
+        <ul class="side-nav caixa_lista">
+            <li ng-repeat="assistente in assistentesCtrl.assistentes | filter:assistente" class="lista">
+                <a href="#" ng-click="assistentesCtrl.buscar_assistentes(assistente.id)">{{assistente.nome}} - {{assistente.titulo}}</a>
+                <i class="step fi-x size-18" ng-click="assistentesCtrl.excluir_assistente(assistente.id)"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer class="row">
+    <div class="medium-12 columns">
+        <hr>
+        <div class="row">
+            <div class="medium-6 columns">
+                <p>© Copyright no one at all. Go to town.</p>
+            </div>
+        </div>
+    </div>
+</footer>

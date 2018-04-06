@@ -1,0 +1,21 @@
+.button_gray {
+	background-color: gray;
+}
+.button_green {
+	background-color: green;
+}
+.caixa_lista {
+	height: 28em;
+	overflow-y: scroll;
+}
+.lista a{
+	float: left;
+	padding: 0 !important;
+	width: 93%;
+}
+.lista i{
+	cursor: pointer;
+}
+ul.token-input-list-facebook{
+	width: 100%;
+}

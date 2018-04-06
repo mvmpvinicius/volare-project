@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="medium-3 columns">
+        <h1 style="text-align: center;">
+        <img src="assets/img/logo.jpg">
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-9 push-3 columns">
+        <h3>Pessoas</h3>
+        <form>
+            <div class="row">
+                <div class="mediu-12 columns">
+                    <img width="300" style="margin: 1em 1em 1em 1em;" ng-src="assets/img/{{pessoasCtrl.foto}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-4 columns">
+                    <label>Registro Aluno</label>
+                    <input ng-model="pessoasCtrl.registro_aluno" type="text" />
+                </div>
+                <div class="medium-8 columns">
+                    <label>Selecione o Sexo</label>
+                    <input ng-model="pessoasCtrl.sexo" type="radio" value="feminino"><label>Feminino</label>
+                    <input ng-model="pessoasCtrl.sexo" type="radio" value="masculino" ng-checked="true"><label>Masculino</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Nome</label>
+                    <input ng-model="pessoasCtrl.nome" type="text" />
+                </div>
+                <div class="medium-6 columns">
+                    <label>Sobrenome</label>
+                    <input ng-model="pessoasCtrl.sobrenome" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-4 columns">
+                    <label>Data de Nascimento</label>
+                    <input ng-model="pessoasCtrl.data_nascimento" type="date" />
+                </div>
+                <div class="medium-4 columns">
+                    <label>Data de Entrada no Colégio</label>
+                    <input ng-model="pessoasCtrl.data_entrada" type="date" />
+                </div>
+                <div class="medium-4 columns">
+                    <label>Série</label>
+                    <input ng-model="pessoasCtrl.serie" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Função</label>
+                    <select ng-model="pessoasCtrl.funcao">
+                        <!-- <option value="-1">Função</option> -->
+                        <option ng-repeat="funcao in pessoasCtrl.funcoes" value="{{funcao.id}}">{{funcao.funcao}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" ng-show="pessoasCtrl.funcao == 1">
+                <!-- <div class="medium-6 columns">
+                    <label>Parentesco</label>
+                    <select ng-model="pessoasCtrl.parentesco">
+                        <option value=""></option>
+                    </select>
+                </div> -->
+                <div class="medium-6 columns">
+                    <label>Responsável 1</label>
+                    <input ng-model="pessoasCtrl.responsavel_1" type="text" />
+                </div>
+                <div class="medium-6 columns">
+                    <label>Responsável 2</label>
+                    <input ng-model="pessoasCtrl.responsavel_2" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Telefone</label>
+                    <input ng-model="pessoasCtrl.telefone" type="text" />
+                </div>
+                <div class="medium-6 columns">
+                    <label>E-mail</label>
+                    <input ng-model="pessoasCtrl.email" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Observações do Tutor</label>
+                    <textarea ng-model="pessoasCtrl.observacao" />
+                </div>
+            </div>
+            <h3>Projetos</h3>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <ul class="pricing-table" ng-repeat="projeto in pessoasCtrl.projetos">
+                        <li class="title">{{projeto[0].titulo}}</li>
+                        <li class="description"><span ng-repeat="conteudo in projeto.conteudos">{{conteudo.nome[0].nome}}, </span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em;">
+                <ul class="button-group radius right">
+                    <li><a href="#" ng-click="pessoasCtrl.salvar_pessoa()" class="button">Salvar</a></li>
+                    <li><a href="#" class="button">Cancelar</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="medium-3 pull-9 columns">
+        <input ng-model="pessoa" type="text">
+        <ul class="side-nav caixa_lista">
+            <li ng-repeat="pessoa in pessoasCtrl.pessoas | filter:pessoa" class="lista">
+                <a href="#" ng-click="pessoasCtrl.buscar_pessoas(pessoa.id)">{{pessoa.nome}}</a>
+                <i class="step fi-x size-18" ng-click="pessoasCtrl.excluir_pessoa(pessoa.id)"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer class="row">
+    <div class="medium-12 columns">
+        <hr>
+        <div class="row">
+            <div class="medium-6 columns">
+                <p>© Copyright no one at all. Go to town.</p>
+            </div>
+        </div>
+    </div>
+</footer>

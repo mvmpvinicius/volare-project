@@ -1,0 +1,131 @@
+<div class="row">
+    <div class="medium-3 columns">
+        <h1>
+        <h1 style="text-align: center;">
+        <img src="assets/img/logo.jpg">
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-9 push-3 columns">
+        <h3>Projetos</h3>
+        <form>
+            <div class="row">
+                <div class="medium-8 columns">
+                    <label>Título</label>
+                    <input ng-model="projetosCtrl.titulo" type="text" />
+                </div>
+                <div class="medium-4 columns">
+                    <label>Orientador</label>
+                    <select ng-model="projetosCtrl.id_orientador">
+                        <option value="-1">Independente</option>
+                        <option ng-repeat="orientador in projetosCtrl.orientadores" value="{{orientador.id}}">{{orientador.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-4 columns">
+                    <input ng-model="participante_projeto" type="text" placeholder="Procure um participante..." />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns" style="height: 10em; overflow: auto;">
+                    <label>Selecione os participantes</label>
+                    <a href="" ng-click="projetosCtrl.seleciona_participante(participante.id, participante.nome)" ng-repeat="participante in projetosCtrl.participantes | filter:participante_projeto" class="button button_gray">{{participante.nome}}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns" style="height: 10em; overflow: auto;">
+                    <label>Participantes</label>
+                    <a href="" ng-click="projetosCtrl.deseleciona_participante(participante.id, participante.nome)" ng-repeat="participante in projetosCtrl.participantes_selecionados" class="button button_green">{{participante.nome}}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-4 columns">
+                    <input ng-model="conteudo_projeto" type="text" placeholder="Procure um conteúdo..." />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns" style="height: 10em; overflow: auto;">
+                    <label>Conteúdos</label>
+                    <a href="" ng-click="projetosCtrl.seleciona_conteudo(conteudo.id, conteudo.nome)" ng-repeat="conteudo in projetosCtrl.conteudos | filter:conteudo_projeto" class="button button_gray">{{conteudo.nome}}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns" style="height: 10em; overflow: auto;">
+                    <label>Conteúdos Abordados</label>
+                    <a href="" ng-click="projetosCtrl.deseleciona_conteudo(conteudo.id, conteudo.nome)" ng-repeat="conteudo in projetosCtrl.conteudos_selecionados" class="button button_green">{{conteudo.nome}}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-4 columns">
+                    <label>Data Início</label>
+                    <input ng-model="projetosCtrl.data_inicio" type="date" />
+                </div>
+                <div class="medium-4 columns">
+                    <label>Data Prevista</label>
+                    <input ng-model="projetosCtrl.data_prevista" type="date" />
+                </div>
+                <div class="medium-4 columns">
+                    <label>Data Término</label>
+                    <input ng-model="projetosCtrl.data_termino" type="date" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>O meu objetivo foi... (Inserir # antes do verbo e das palavras mais importantes)</label>
+                    <textarea ng-model="projetosCtrl.objetivo" placeholder="#Desenhar um #MapaMundi" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Acompanhamento</label>
+                    <textarea ng-model="projetosCtrl.acompanhamento" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Comentários</label>
+                    <textarea ng-model="projetosCtrl.comentarios" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Habilidades Desenvolvidas</label>
+                    <textarea ng-model="projetosCtrl.habilidades" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label>Fontes</label>
+                    <textarea ng-model="projetosCtrl.fontes" />
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em;">
+                <ul class="button-group radius right">
+                    <li><a href="#" ng-click="projetosCtrl.salvar_projeto()" class="button">Salvar</a></li>
+                    <li><a href="#" class="button">Cancelar</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="medium-3 pull-9 columns">
+        <input ng-model="projeto" type="text">
+        <ul class="side-nav caixa_lista">
+            <li ng-repeat="projeto in projetosCtrl.projetos | filter:projeto" class="lista">
+                <a href="#" ng-click="projetosCtrl.buscar_projetos(projeto.id)">{{projeto.titulo}}</a>
+                <i class="step fi-x size-18" ng-click="projetosCtrl.excluir_projeto(projeto.id)"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer class="row">
+    <div class="medium-12 columns">
+        <hr>
+        <div class="row">
+            <div class="medium-6 columns">
+                <p>© Copyright no one at all. Go to town.</p>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="medium-3 columns">
+        <h1>
+        <h1 style="text-align: center;">
+        <img src="assets/img/logo.jpg">
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-9 push-3 columns">
+        <h3>Conteúdos</h3>
+        <form>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <input ng-model="conteudosCtrl.nome" type="text" placeholder="Conteúdo" />
+                </div>
+                <div class="medium-6 columns">
+                    <select ng-model="conteudosCtrl.id_pai">
+                        <option value="-1">Selecione Conteúdo Pai</option>
+                        <option ng-repeat="conteudos in conteudosCtrl.conteudos" value="{{conteudos.id}}">{{conteudos.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em;">
+                <ul class="button-group radius right">
+                    <li><a href="#" ng-click="conteudosCtrl.salvar_conteudo()" class="button">Salvar</a></li>
+                    <li><a href="#" class="button">Cancelar</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="medium-3 pull-9 columns">
+        <input ng-model="conteudo" type="text">
+        <ul class="side-nav caixa_lista">
+            <li ng-repeat="conteudo in conteudosCtrl.conteudos | filter:conteudo" class="lista">
+                <a href="#" ng-click="conteudosCtrl.buscar_conteudos(conteudo.id)">{{conteudo.nome}}</a>
+                <i class="step fi-x size-18" ng-click="conteudosCtrl.excluir_conteudo(conteudo.id)"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer class="row">
+    <div class="medium-12 columns">
+        <hr>
+        <div class="row">
+            <div class="medium-6 columns">
+                <p>© Copyright no one at all. Go to town.</p>
+            </div>
+        </div>
+    </div>
+</footer>
